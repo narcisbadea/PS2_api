@@ -5,6 +5,6 @@
     
         public int Wh { get; set; }
 
-        public int  hour { get; set; }
+        public double  hour { get; set; }
     }
 }

@@ -39,12 +39,16 @@ public class PowersController:ControllerBase
         List<PowerResult> pr = new List<PowerResult>();
         foreach (var p in l)
         {
-            pr.Add(new PowerResult
+            PowerResult r = new PowerResult();
+            if (p.Created.Minute == 30)
             {
-                hour = p.Created.Hour,
-                Wh = p.Wh
-            });
+                r.hour += 0.5;
+            }
+
+            r.Wh = p.Wh;
+            pr.Add(r);
         }
+
         return pr;
     }
 }
