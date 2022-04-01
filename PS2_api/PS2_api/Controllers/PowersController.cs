@@ -40,6 +40,7 @@ public class PowersController:ControllerBase
         foreach (var p in l)
         {
             PowerResult r = new PowerResult();
+            r.hour = p.Created.Hour;
             if (p.Created.Minute == 30)
             {
                 r.hour += 0.5;
