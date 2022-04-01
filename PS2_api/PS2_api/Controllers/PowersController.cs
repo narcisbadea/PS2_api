@@ -7,7 +7,7 @@ namespace PS2_api.Controllers;
 
 
 [ApiController]
-[Route("api")]
+[Route("[controller]")]
 public class PowersController:ControllerBase
 {
     private readonly AppDbContext _dbContext;
