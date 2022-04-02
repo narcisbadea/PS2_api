@@ -58,6 +58,8 @@ public class PowersController:ControllerBase
         {
             pr.hour += 0.5;
         }
+
+        pr.Wh = pl[0].Wh;
         return pr;
     }
     
