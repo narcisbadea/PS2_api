@@ -18,12 +18,12 @@ public class PowersController:ControllerBase
     }
     
     [HttpPost]
-    public async Task<Power> Post(int wh)
+    public async Task<Power> Post(PowerRequest pr)
     {
             var power = new Power()
             {
                 Id = new Guid(),
-                Wh = wh,
+                Wh = pr.Wh,
                 Created = DateTime.UtcNow
             };
 
