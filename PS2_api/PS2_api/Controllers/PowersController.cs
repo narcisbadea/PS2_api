@@ -17,7 +17,7 @@ public class PowersController:ControllerBase
         _dbContext = dbContext;
     }
     
-    [HttpPost("{wh}")]
+    [HttpPost]
     public async Task<Power> Post(int wh)
     {
             var power = new Power()
