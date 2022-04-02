@@ -49,18 +49,14 @@ public class PowersController:ControllerBase
     }
 
     [HttpGet("live")]
-    public async Task<List<PowerResult>> GetPowerLive()
+    public async Task<List<PowerLiveResult>> GetPowerLive()
     {
         var pl = await _dbContext.PowerLives.ToListAsync();
-        var pr = new PowerResult();
-        pr.hour = pl[0].Time.Hour;
-        if (pl[0].Time.Minute == 30)
-        {
-            pr.hour += 0.5;
-        }
-
+        var pr = new PowerLiveResult();
+        pr.Time = pl[0].Time.Hour + ":" + pl[0].Time.Minute + ":" + pl[0].Time.Second;
         pr.Wh = pl[0].Wh;
-        List<PowerResult> result = new List<PowerResult>();
+        
+        List<PowerLiveResult> result = new List<PowerLiveResult>();
         result.Add(pr);
         return result;
     }

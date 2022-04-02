@@ -9,6 +9,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8c1449cc-c837-4322-bc56-4b104a622545" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/PS2_api/Models/PowerLiveResult.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PS2_api/Controllers/PowersController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PS2_api/Controllers/PowersController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -88,7 +89,7 @@
       <workItem from="1648826081197" duration="22000" />
       <workItem from="1648903329547" duration="435000" />
       <workItem from="1648904007795" duration="207000" />
-      <workItem from="1648904934249" duration="1879000" />
+      <workItem from="1648904934249" duration="2260000" />
     </task>
     <servers />
   </component>
