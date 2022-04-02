@@ -32,6 +32,28 @@ public class PowersController:ControllerBase
             return result.Entity;
     }
 
+    [HttpPut]
+    public async Task<PowerLive> Put(PowerRequest pr)
+    {
+        var pl = await _dbContext.PowerLives.FirstOrDefaultAsync(p => p.Id == 1);
+        if (pl is null)
+        {
+            throw new ArgumentException("PowerLive not found!");
+        }
+
+        pl.Wh = pr.Wh;
+        pl.Time = DateTime.UtcNow;
+
+        await _dbContext.SaveChangesAsync();
+        return pl;
+    }
+
+    [HttpGet("live")]
+    public async Task<List<PowerLive>> GetPowerLive()
+    {
+        return await _dbContext.PowerLives.ToListAsync();
+    }
+    
     [HttpGet]
     public async Task<List<PowerResult>> GET()
     {

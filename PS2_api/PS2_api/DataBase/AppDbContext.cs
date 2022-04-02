@@ -11,4 +11,5 @@ public class AppDbContext:DbContext
     
     public DbSet<Waypoint> Waypoints { get; set; }
 
+    public DbSet<PowerLive> PowerLives { get; set; }
 }
