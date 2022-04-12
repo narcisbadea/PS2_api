@@ -43,11 +43,6 @@ public class PowersController:ControllerBase
         
         pl.Wh = pr.Wh;
         pl.Time = DateTime.UtcNow;
-        var lastPowerRegisterd = _dbContext.Powers.Last();
-        if (lastPowerRegisterd.Created.AddMinutes(1) < pl.Time)
-        {
-            await _dbContext.Powers.AddAsync(new Power { Id = new Guid(), Wh = pr.Wh, Created = pl.Time });
-        }
         await _dbContext.SaveChangesAsync();
         return pl;
     }
