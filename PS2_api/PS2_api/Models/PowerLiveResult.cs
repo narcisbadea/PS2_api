@@ -2,7 +2,7 @@
 
 public class PowerLiveResult
 {
-    public int Wh { get; set; }
+    public float Wh { get; set; }
 
     public string  Time { get; set; }
 }
