@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Security.Cryptography;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PS2_api.DataBase;
 using PS2_api.Models;
@@ -17,22 +18,9 @@ public class PowersController:ControllerBase
         _dbContext = dbContext;
     }
     
-    [HttpPost]
-    public async Task<Power> Post(PowerRequest pr)
-    {
-            var power = new Power()
-            {
-                Id = new Guid(),
-                Wh = pr.Wh,
-                Created = DateTime.UtcNow
-            };
 
-            var result = await _dbContext.Powers.AddAsync(power);
-            await _dbContext.SaveChangesAsync();
-            return result.Entity;
-    }
 
-    [HttpPut]
+    [HttpPut("live")]
     public async Task<PowerLive> Put(PowerRequest pr)
     {
         var pl = await _dbContext.PowerLives.FirstOrDefaultAsync(p => p.Id == 1);
@@ -42,7 +30,14 @@ public class PowersController:ControllerBase
         }
         
         pl.Wh = pr.Wh;
-        pl.Time = DateTime.UtcNow;
+        pl.Created = DateTime.UtcNow;
+
+        var lastPower = await _dbContext.Powers.LastAsync();
+        var lastTime = lastPower.Created;
+        if (lastTime.AddMinutes(30) < pl.Created)
+        {
+            await _dbContext.Powers.AddAsync(new Power(pl));
+        }
         await _dbContext.SaveChangesAsync();
         return pl;
     }
@@ -52,7 +47,7 @@ public class PowersController:ControllerBase
     {
         var pl = await _dbContext.PowerLives.ToListAsync();
         var pr = new PowerLiveResult();
-        pr.Time = pl[0].Time.Hour + ":" + pl[0].Time.Minute + ":" + pl[0].Time.Second;
+        pr.Time = pl[0].Created.Hour + ":" + pl[0].Created.Minute + ":" + pl[0].Created.Second;
         pr.Wh = pl[0].Wh;
         
         List<PowerLiveResult> result = new List<PowerLiveResult>();
