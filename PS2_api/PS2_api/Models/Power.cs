@@ -13,10 +13,5 @@ public class Power
     [Required]
     public DateTime  Created { get; set; }
 
-    public Power(PowerLive pl)
-    {
-        this.Id = Guid.NewGuid();
-        this.Wh = pl.Id;
-        this.Created = pl.Created;
-    }
+   
 }

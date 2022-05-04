@@ -12,7 +12,7 @@ using PS2_api.DataBase;
 namespace PS2_api.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220504193642_init")]
+    [Migration("20220504200019_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -49,7 +49,7 @@ namespace PS2_api.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("Time")
+                    b.Property<DateTime>("Created")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<float>("Wh")

@@ -32,11 +32,17 @@ public class PowersController:ControllerBase
         pl.Wh = pr.Wh;
         pl.Created = DateTime.UtcNow;
 
-        var lastPower = await _dbContext.Powers.LastAsync();
-        var lastTime = lastPower.Created;
+        var lastPower = await _dbContext.Powers.ToListAsync();
+        var lastTime = lastPower.Last().Created;
         if (lastTime.AddMinutes(30) < pl.Created)
         {
-            await _dbContext.Powers.AddAsync(new Power(pl));
+            var prw = new Power
+            {
+                Id = Guid.NewGuid(),
+                Wh = pl.Wh,
+                Created = pl.Created
+            };
+            await _dbContext.Powers.AddAsync(prw);
         }
         await _dbContext.SaveChangesAsync();
         return pl;
