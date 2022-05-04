@@ -31,8 +31,8 @@ namespace PS2_api.Migrations
                     b.Property<DateTime>("Created")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<int>("Wh")
-                        .HasColumnType("integer");
+                    b.Property<float>("Wh")
+                        .HasColumnType("real");
 
                     b.HasKey("Id");
 

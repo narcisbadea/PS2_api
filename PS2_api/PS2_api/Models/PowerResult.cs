@@ -3,7 +3,7 @@
     public class PowerResult
     {
     
-        public int Wh { get; set; }
+        public float Wh { get; set; }
 
         public double  hour { get; set; }
     }

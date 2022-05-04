@@ -2,5 +2,5 @@
 
 public class PowerRequest
 {
-    public int Wh { get; set; }
+    public float Wh { get; set; }
 }

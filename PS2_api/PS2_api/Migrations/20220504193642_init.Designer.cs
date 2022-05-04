@@ -12,7 +12,7 @@ using PS2_api.DataBase;
 namespace PS2_api.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220401093258_init")]
+    [Migration("20220504193642_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,12 +33,31 @@ namespace PS2_api.Migrations
                     b.Property<DateTime>("Created")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<int>("Wh")
-                        .HasColumnType("integer");
+                    b.Property<float>("Wh")
+                        .HasColumnType("real");
 
                     b.HasKey("Id");
 
                     b.ToTable("Powers");
+                });
+
+            modelBuilder.Entity("PS2_api.Models.PowerLive", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("Time")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<float>("Wh")
+                        .HasColumnType("real");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PowerLives");
                 });
 
             modelBuilder.Entity("PS2_api.Models.Waypoint", b =>
