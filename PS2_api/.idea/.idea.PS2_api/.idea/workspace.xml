@@ -11,12 +11,6 @@
     <list default="true" id="8c1449cc-c837-4322-bc56-4b104a622545" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PS2_api/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PS2_api/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PS2_api/Controllers/PowersController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PS2_api/Controllers/PowersController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PS2_api/Migrations/20220504200019_init.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PS2_api/Migrations/20220504200019_init.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PS2_api/Migrations/AppDbContextModelSnapshot.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PS2_api/Models/PowerLive.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PS2_api/Models/PowerLive.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PS2_api/Models/PowerLiveResult.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PS2_api/Models/PowerLiveResult.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PS2_api/Models/PowerRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PS2_api/Models/PowerRequest.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +100,7 @@
       <workItem from="1649751584536" duration="1743000" />
       <workItem from="1650016343152" duration="2503000" />
       <workItem from="1651692793298" duration="2248000" />
-      <workItem from="1651742991772" duration="371000" />
+      <workItem from="1651742991772" duration="1598000" />
     </task>
     <servers />
   </component>
