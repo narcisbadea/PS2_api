@@ -50,7 +50,10 @@ namespace PS2_api.Migrations
                     b.Property<DateTime>("Created")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<float>("Wh")
+                    b.Property<float>("livePower")
+                        .HasColumnType("real");
+
+                    b.Property<float>("totalPower")
                         .HasColumnType("real");
 
                     b.HasKey("Id");

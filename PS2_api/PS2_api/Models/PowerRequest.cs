@@ -2,5 +2,7 @@
 
 public class PowerRequest
 {
-    public float Wh { get; set; }
+    public float livePower { get; set; }
+    public float totalPower { get; set; }
+    
 }

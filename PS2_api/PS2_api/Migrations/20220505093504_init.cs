@@ -16,7 +16,8 @@ namespace PS2_api.Migrations
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Wh = table.Column<float>(type: "real", nullable: false),
+                    livePower = table.Column<float>(type: "real", nullable: false),
+                    totalPower = table.Column<float>(type: "real", nullable: false),
                     Created = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
                 },
                 constraints: table =>

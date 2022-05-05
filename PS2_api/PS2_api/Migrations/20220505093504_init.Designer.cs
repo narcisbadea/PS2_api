@@ -12,7 +12,7 @@ using PS2_api.DataBase;
 namespace PS2_api.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220504200019_init")]
+    [Migration("20220505093504_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -52,7 +52,10 @@ namespace PS2_api.Migrations
                     b.Property<DateTime>("Created")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<float>("Wh")
+                    b.Property<float>("livePower")
+                        .HasColumnType("real");
+
+                    b.Property<float>("totalPower")
                         .HasColumnType("real");
 
                     b.HasKey("Id");

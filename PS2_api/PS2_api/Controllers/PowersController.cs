@@ -29,9 +29,10 @@ public class PowersController:ControllerBase
             throw new ArgumentException("PowerLive not found!");
         }
         
-        pl.Wh = pr.Wh;
+        pl.livePower = pr.livePower;
         pl.Created = DateTime.UtcNow;
-
+        pl.totalPower = pr.totalPower;
+        
         var lastPower = await _dbContext.Powers.ToListAsync();
         var lastTime = lastPower.Last().Created;
         if (lastTime.AddMinutes(30) < pl.Created)
@@ -39,7 +40,7 @@ public class PowersController:ControllerBase
             var prw = new Power
             {
                 Id = Guid.NewGuid(),
-                Wh = pl.Wh,
+                Wh = pl.livePower,
                 Created = pl.Created
             };
             await _dbContext.Powers.AddAsync(prw);
@@ -54,8 +55,9 @@ public class PowersController:ControllerBase
         var pl = await _dbContext.PowerLives.ToListAsync();
         var pr = new PowerLiveResult();
         pr.Time = pl[0].Created.Hour + ":" + pl[0].Created.Minute + ":" + pl[0].Created.Second;
-        pr.Wh = pl[0].Wh;
-        
+        pr.livePower = pl[0].livePower;
+        pr.totalPower = pl[0].totalPower;
+
         List<PowerLiveResult> result = new List<PowerLiveResult>();
         result.Add(pr);
         return result;

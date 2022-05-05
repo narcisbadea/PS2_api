@@ -2,7 +2,7 @@
 
 public class PowerLiveResult
 {
-    public float Wh { get; set; }
-
+    public float livePower { get; set; }
+    public float totalPower { get; set; }
     public string  Time { get; set; }
 }
