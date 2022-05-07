@@ -40,7 +40,7 @@ public class PowersController:ControllerBase
             var prw = new Power
             {
                 Id = Guid.NewGuid(),
-                Wh = pl.livePower,
+                mWh = pl.livePower,
                 Created = pl.Created
             };
             await _dbContext.Powers.AddAsync(prw);
@@ -77,7 +77,7 @@ public class PowersController:ControllerBase
                 r.hour += 0.5;
             }
 
-            r.Wh = p.Wh;
+            r.mWh = p.mWh;
             pr.Add(r);
         }
 
