@@ -49,6 +49,19 @@ public class PowersController:ControllerBase
         return pl;
     }
 
+    [HttpPost]
+    public async Task<ActionResult<PowerResult>> post(PowerResult pr)
+    {
+        Power pw = new Power();
+        pw.Id = Guid.NewGuid();
+        pw.Created = DateTime.UtcNow;
+        TimeSpan ts = new TimeSpan((int)pr.hour, pw.Created.Minute, pw.Created.Second);
+        pw.Created = pw.Created.Date + ts;
+        pw.mWh = pr.mWh;
+        var add = await _dbContext.Powers.AddAsync(pw);
+        _dbContext.SaveChanges();
+        return Ok(pw);
+    }
     [HttpGet("live")]
     public async Task<List<PowerLiveResult>> GetPowerLive()
     {
