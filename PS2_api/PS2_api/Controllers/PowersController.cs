@@ -41,7 +41,7 @@ public class PowersController:ControllerBase
             {
                 Id = Guid.NewGuid(),
                 mWh = pl.livePower,
-                Created = lastTime.AddMinutes(30)
+                Created = lastTime.AddMinutes(15)
             };
             await _dbContext.Powers.AddAsync(prw);
         }
@@ -85,10 +85,8 @@ public class PowersController:ControllerBase
         {
             PowerResult r = new PowerResult();
             r.hour = p.Created.Hour;
-            if (p.Created.Minute == 30)
-            {
-                r.hour += 0.5;
-            }
+
+            r.hour += ((double)p.Created.Minute * 100 / 60) / 100;
 
             r.mWh = p.mWh;
             pr.Add(r);
