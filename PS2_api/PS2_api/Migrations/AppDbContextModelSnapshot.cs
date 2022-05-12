@@ -63,9 +63,11 @@ namespace PS2_api.Migrations
 
             modelBuilder.Entity("PS2_api.Models.Waypoint", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<int>("LR")
                         .HasColumnType("integer");
@@ -73,8 +75,8 @@ namespace PS2_api.Migrations
                     b.Property<int>("TD")
                         .HasColumnType("integer");
 
-                    b.Property<DateTime>("positionTime")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<TimeOnly>("positionTime")
+                        .HasColumnType("time without time zone");
 
                     b.HasKey("Id");
 

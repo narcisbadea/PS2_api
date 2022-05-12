@@ -10,8 +10,12 @@
   <component name="ChangeListManager">
     <list default="true" id="8c1449cc-c837-4322-bc56-4b104a622545" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PS2_api/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PS2_api/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PS2_api/Controllers/PowersController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PS2_api/Controllers/PowersController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PS2_api/Migrations/AppDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PS2_api/Migrations/AppDbContextModelSnapshot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PS2_api/Migrations/20220505093504_init.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PS2_api/Migrations/20220505093504_init.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PS2_api/Migrations/20220507101019_mwh.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PS2_api/Migrations/20220507101019_mwh.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PS2_api/Migrations/AppDbContextModelSnapshot.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PS2_api/Models/Waypoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PS2_api/Models/Waypoint.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,7 +23,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1e8feaadf5c3fa14d36ea2a638c432a2e1a47b7837d8b83d88303c5d9c15cf/AsyncValueTaskMethodBuilderT.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1e8feaadf5c3fa14d36ea2a638c432a2e1a47b7837d8b83d88303c5d9c15cf/AsyncValueTaskMethodBuilderT.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3ea95343b9387b73062a9b61b7538f826c54ce3529632b4472ba4494044d23/AsyncTaskMethodBuilderT.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -104,7 +108,8 @@
       <workItem from="1651742991772" duration="2863000" />
       <workItem from="1651917656131" duration="942000" />
       <workItem from="1652114483767" duration="52000" />
-      <workItem from="1652125797886" duration="696000" />
+      <workItem from="1652125797886" duration="1352000" />
+      <workItem from="1652359330530" duration="384000" />
     </task>
     <servers />
   </component>
