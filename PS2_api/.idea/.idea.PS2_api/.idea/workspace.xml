@@ -9,7 +9,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8c1449cc-c837-4322-bc56-4b104a622545" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.PS2_api/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PS2_api/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PS2_api/Controllers/PowersController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PS2_api/Controllers/PowersController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +103,7 @@
       <workItem from="1651917656131" duration="942000" />
       <workItem from="1652114483767" duration="52000" />
       <workItem from="1652125797886" duration="1352000" />
-      <workItem from="1652359330530" duration="2109000" />
+      <workItem from="1652359330530" duration="2421000" />
     </task>
     <servers />
   </component>
@@ -125,24 +125,5 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/PS2_api/Controllers/PowersController.cs</url>
-          <line>36</line>
-          <properties documentPath="C:\RepoFacultate\PS2\PS2_api\PS2_api\PS2_api\Controllers\PowersController.cs" initialLine="36" containingFunctionPresentation="method 'Put'">
-            <startOffsets>
-              <option value="902" />
-            </startOffsets>
-            <endOffsets>
-              <option value="942" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
