@@ -33,8 +33,25 @@ public class PowersController:ControllerBase
         pl.Created = DateTime.UtcNow;
         pl.totalPower = pr.totalPower;
         
+        if (pl.Created.Hour == 0 && pl.Created.Minute == 0 && pl.Created.Second is 0 or 1)
+        {
+            foreach (var pow in await _dbContext.Powers.ToListAsync())
+            {
+                _dbContext.Powers.Remove(pow);
+            }
+            var powAdd = new Power
+            {
+                Id = Guid.NewGuid(),
+                mWh = pl.livePower,
+                Created = pl.Created
+            };
+            await _dbContext.Powers.AddAsync(powAdd);
+            await _dbContext.SaveChangesAsync();
+        }
+        
         var lastPower = await _dbContext.Powers.ToListAsync();
         var lastTime = lastPower.Last().Created;
+       
         if (lastTime.AddMinutes(1) < pl.Created)
         {
             var prw = new Power
