@@ -35,7 +35,7 @@ public class PowersController:ControllerBase
         
         var lastPower = await _dbContext.Powers.ToListAsync();
         var lastTime = lastPower.Last().Created;
-        if (lastTime.AddSeconds(30) < pl.Created)
+        if (lastTime.AddMinutes(1) < pl.Created)
         {
             var prw = new Power
             {
