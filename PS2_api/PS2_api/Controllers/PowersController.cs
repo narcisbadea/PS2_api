@@ -75,7 +75,7 @@ public class PowersController:ControllerBase
         return Ok(pw);
     }
     [HttpGet("live")]
-    public async Task<ActionResult<PowerLiveResult>>GetPowerLive()
+    public async Task<List<PowerLiveResult>>GetPowerLive()
     {
         var powerLive = await _dbContext.PowerLives.ToListAsync();
         var powerLiveResult = new PowerLiveResult
@@ -85,7 +85,7 @@ public class PowersController:ControllerBase
             totalPower = powerLive[0].totalPower
         };
 
-        return Ok(powerLiveResult);
+        return new List<PowerLiveResult> { powerLiveResult };
     }
     
     [HttpGet]

@@ -9,11 +9,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8c1449cc-c837-4322-bc56-4b104a622545" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/PS2_api/Migrations/20220512124433_init.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PS2_api/Migrations/20220512124433_init.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PS2_api/Migrations/20220512124924_time.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PS2_api/Migrations/20220512124924_time.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PS2_api/Migrations/AppDbContextModelSnapshot.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PS2_api/Controllers/PowersController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PS2_api/Controllers/PowersController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +104,7 @@
       <workItem from="1652114483767" duration="52000" />
       <workItem from="1652125797886" duration="1352000" />
       <workItem from="1652359330530" duration="3867000" />
-      <workItem from="1652441991339" duration="1329000" />
+      <workItem from="1652441991339" duration="1772000" />
     </task>
     <servers />
   </component>
