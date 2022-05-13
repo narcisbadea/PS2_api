@@ -95,8 +95,6 @@ public class PowersController:ControllerBase
                 mWh = power.mWh,
             });
         }
-
         return powerResults;
     }
-    
 }
