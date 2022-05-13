@@ -77,12 +77,12 @@ public class PowersController:ControllerBase
     [HttpGet("live")]
     public async Task<ActionResult<PowerLiveResult>>GetPowerLive()
     {
-        var powerLive = await _dbContext.PowerLives.FirstAsync();
+        var powerLive = await _dbContext.PowerLives.ToListAsync();
         var powerLiveResult = new PowerLiveResult
         {
-            Time = powerLive.Created.Hour + ":" + powerLive.Created.Minute + ":" + powerLive.Created.Second,
-            livePower = powerLive.livePower,
-            totalPower = powerLive.totalPower
+            Time = powerLive[0].Created.Hour + ":" + powerLive[0].Created.Minute + ":" + powerLive[0].Created.Second,
+            livePower = powerLive[0].livePower,
+            totalPower = powerLive[0].totalPower
         };
 
         return Ok(powerLiveResult);

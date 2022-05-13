@@ -29,7 +29,8 @@ namespace PS2_api.Migrations
                 name: "Powers",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     mWh = table.Column<float>(type: "real", nullable: false),
                     Created = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
                 },
@@ -44,7 +45,7 @@ namespace PS2_api.Migrations
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    positionTime = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    positionTime = table.Column<TimeOnly>(type: "time without time zone", nullable: false),
                     LR = table.Column<int>(type: "integer", nullable: false),
                     TD = table.Column<int>(type: "integer", nullable: false)
                 },
