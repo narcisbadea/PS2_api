@@ -19,61 +19,55 @@ public class PowersController:ControllerBase
     }
     
     [HttpPut("live")]
-    public async Task<PowerLive> Put(PowerRequest pr)
+    public async Task<PowerLive> Put(PowerRequest powerRequest)
     {
-        var pl = await _dbContext.PowerLives.FirstOrDefaultAsync(p => p.Id == 1);
-        if (pl is null)
+        var powerLive = await _dbContext.PowerLives.FirstOrDefaultAsync(p => p.Id == 1);
+        if (powerLive is null)
         {
             throw new ArgumentException("PowerLive not found!");
         }
+
+        powerLive = new PowerLive// update power live from database with new data
+        {
+            livePower = powerRequest.livePower,
+            Created = DateTime.UtcNow,
+            totalPower = powerRequest.totalPower
+        };
         
-        pl.livePower = pr.livePower;
-        pl.Created = DateTime.UtcNow;
-        pl.totalPower = pr.totalPower;
         
-        if (pl.Created.Hour == 0 && pl.Created.Minute == 0 && pl.Created.Second is 0 or 1)
+        if (powerLive.Created.Hour == 0 && powerLive.Created.Minute == 0 && powerLive.Created.Second is 0 or 1) // reset at 00:00:00
         {
             foreach (var pow in await _dbContext.Powers.ToListAsync())
             {
                 _dbContext.Powers.Remove(pow);
             }
-            var powAdd = new Power
+            await _dbContext.SaveChangesAsync();
+            
+            var firstPowerOfTheDay = new Power
             {
-                mWh = pl.livePower,
-                Created = pl.Created
+                mWh = powerLive.livePower,
+                Created = powerLive.Created
             };
-            await _dbContext.Powers.AddAsync(powAdd);
+            await _dbContext.Powers.AddAsync(firstPowerOfTheDay);
             await _dbContext.SaveChangesAsync();
         }
         
-        var lastPower = await _dbContext.Powers.ToListAsync();
-        var lastTime = lastPower.Last().Created;
+        var lastPowerRegistered = await _dbContext.Powers.LastAsync();
+        var lastTime = lastPowerRegistered.Created;
        
-        if (lastTime.AddMinutes(1) < pl.Created)
+        if (lastTime.AddMinutes(1) < powerLive.Created)//once a minute add the current live power to the database
         {
-            var prw = new Power
+            var powerLiveForAdd = new Power
             {
-                mWh = pl.livePower,
-                Created = pl.Created
+                mWh = powerLive.livePower,
+                Created = powerLive.Created
             };
-            await _dbContext.Powers.AddAsync(prw);
+            await _dbContext.Powers.AddAsync(powerLiveForAdd);
         }
         await _dbContext.SaveChangesAsync();
-        return pl;
+        return powerLive;
     }
 
-    [HttpPost]
-    public async Task<ActionResult<PowerResult>> post(PowerResult pr)
-    {
-        Power pw = new Power();
-        pw.Created = DateTime.UtcNow;
-        TimeSpan ts = new TimeSpan((int)pr.hour, pw.Created.Minute, pw.Created.Second);
-        pw.Created = pw.Created.Date + ts;
-        pw.mWh = pr.mWh;
-        var add = await _dbContext.Powers.AddAsync(pw);
-        await _dbContext.SaveChangesAsync();
-        return Ok(pw);
-    }
     [HttpGet("live")]
     public async Task<List<PowerLiveResult>>GetPowerLive()
     {
@@ -91,19 +85,18 @@ public class PowersController:ControllerBase
     [HttpGet]
     public async Task<List<PowerResult>> Get()
     {
-        var l = await _dbContext.Powers.OrderBy(o => o.Created).ToListAsync();
-        List<PowerResult> pr = new List<PowerResult>();
-        foreach (var p in l)
+        var powers = await _dbContext.Powers.OrderBy(p => p.Created).ToListAsync();
+        List<PowerResult> powerResults = new List<PowerResult>();
+        foreach (var power in powers)
         {
-            PowerResult r = new PowerResult();
-            r.hour = p.Created.Hour;
-
-            r.hour += ((double)p.Created.Minute * 100 / 60) / 100;
-
-            r.mWh = p.mWh;
-            pr.Add(r);
+            powerResults.Add(new PowerResult
+            {
+                hour = power.Created.Hour + ((double)power.Created.Minute * 100 / 60) / 100,
+                mWh = power.mWh,
+            });
         }
 
-        return pr;
+        return powerResults;
     }
+    
 }
