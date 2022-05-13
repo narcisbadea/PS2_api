@@ -17,8 +17,8 @@ public class WaypointsController : ControllerBase
         _dbContext = dbContext;
     }
 
-    [HttpGet("{hour}")]
-    public async Task<List<Waypoint>> GET(int hour)
+    [HttpGet("{hour:int}")]
+    public async Task<List<Waypoint>> Get(int hour)
     {
         var pw = await _dbContext.Waypoints.Where(d => d.positionTime.Hour == hour).ToListAsync();
         return pw;

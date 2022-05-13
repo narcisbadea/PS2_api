@@ -1,17 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using PS2_api.Base;
 
 namespace PS2_api.Models;
 
-public class Power
+public class Power : Entity
 {
-    [Required] 
-    public Guid Id { get; set; }
+    [Required] public float mWh { get; set; }
     
-    [Required]
-    public float mWh { get; set; }
-    
-    [Required]
-    public DateTime  Created { get; set; }
-
-   
 }

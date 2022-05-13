@@ -18,8 +18,6 @@ public class PowersController:ControllerBase
         _dbContext = dbContext;
     }
     
-
-
     [HttpPut("live")]
     public async Task<PowerLive> Put(PowerRequest pr)
     {
@@ -41,7 +39,6 @@ public class PowersController:ControllerBase
             }
             var powAdd = new Power
             {
-                Id = Guid.NewGuid(),
                 mWh = pl.livePower,
                 Created = pl.Created
             };
@@ -56,7 +53,6 @@ public class PowersController:ControllerBase
         {
             var prw = new Power
             {
-                Id = Guid.NewGuid(),
                 mWh = pl.livePower,
                 Created = pl.Created
             };
@@ -70,31 +66,30 @@ public class PowersController:ControllerBase
     public async Task<ActionResult<PowerResult>> post(PowerResult pr)
     {
         Power pw = new Power();
-        pw.Id = Guid.NewGuid();
         pw.Created = DateTime.UtcNow;
         TimeSpan ts = new TimeSpan((int)pr.hour, pw.Created.Minute, pw.Created.Second);
         pw.Created = pw.Created.Date + ts;
         pw.mWh = pr.mWh;
         var add = await _dbContext.Powers.AddAsync(pw);
-        _dbContext.SaveChanges();
+        await _dbContext.SaveChangesAsync();
         return Ok(pw);
     }
     [HttpGet("live")]
-    public async Task<List<PowerLiveResult>> GetPowerLive()
+    public async Task<ActionResult<PowerLiveResult>>GetPowerLive()
     {
-        var pl = await _dbContext.PowerLives.ToListAsync();
-        var pr = new PowerLiveResult();
-        pr.Time = pl[0].Created.Hour + ":" + pl[0].Created.Minute + ":" + pl[0].Created.Second;
-        pr.livePower = pl[0].livePower;
-        pr.totalPower = pl[0].totalPower;
+        var powerLive = await _dbContext.PowerLives.FirstAsync();
+        var powerLiveResult = new PowerLiveResult
+        {
+            Time = powerLive.Created.Hour + ":" + powerLive.Created.Minute + ":" + powerLive.Created.Second,
+            livePower = powerLive.livePower,
+            totalPower = powerLive.totalPower
+        };
 
-        List<PowerLiveResult> result = new List<PowerLiveResult>();
-        result.Add(pr);
-        return result;
+        return Ok(powerLiveResult);
     }
     
     [HttpGet]
-    public async Task<List<PowerResult>> GET()
+    public async Task<List<PowerResult>> Get()
     {
         var l = await _dbContext.Powers.OrderBy(o => o.Created).ToListAsync();
         List<PowerResult> pr = new List<PowerResult>();
