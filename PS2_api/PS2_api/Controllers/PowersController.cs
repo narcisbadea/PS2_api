@@ -27,13 +27,10 @@ public class PowersController:ControllerBase
             throw new ArgumentException("PowerLive not found!");
         }
 
-        powerLive = new PowerLive// update power live from database with new data
-        {
-            Id = 1,
-            livePower = powerRequest.livePower,
-            Created = DateTime.UtcNow,
-            totalPower = powerRequest.totalPower
-        };
+        powerLive.livePower = powerRequest.livePower; //= new PowerLive// update power live from database with new data
+        powerLive.totalPower = powerRequest.totalPower;
+        powerLive.Created = DateTime.UtcNow;
+
         await _dbContext.SaveChangesAsync();
         
         if (powerLive.Created.Hour == 0 && powerLive.Created.Minute == 0 && powerLive.Created.Second is 0 or 1) // reset at 00:00:00
