@@ -29,11 +29,12 @@ public class PowersController:ControllerBase
 
         powerLive = new PowerLive// update power live from database with new data
         {
+            Id = 1,
             livePower = powerRequest.livePower,
             Created = DateTime.UtcNow,
             totalPower = powerRequest.totalPower
         };
-        
+        await _dbContext.SaveChangesAsync();
         
         if (powerLive.Created.Hour == 0 && powerLive.Created.Minute == 0 && powerLive.Created.Second is 0 or 1) // reset at 00:00:00
         {
@@ -52,7 +53,7 @@ public class PowersController:ControllerBase
             await _dbContext.SaveChangesAsync();
         }
         
-        var lastPowerRegistered = await _dbContext.Powers.LastAsync();
+        var lastPowerRegistered = await _dbContext.Powers.OrderBy(p => p.Created).LastAsync();
         var lastTime = lastPowerRegistered.Created;
        
         if (lastTime.AddMinutes(1) < powerLive.Created)//once a minute add the current live power to the database
