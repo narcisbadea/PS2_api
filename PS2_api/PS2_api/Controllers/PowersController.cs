@@ -19,7 +19,7 @@ public class PowersController:ControllerBase
     }
     
     [HttpPut("live")]
-    public async Task<PowerLive> Put(PowerRequest powerRequest)
+    public async Task<ActionResult<PowerLive>> Put(PowerRequest powerRequest)
     {
         var powerLive = await _dbContext.PowerLives.FirstOrDefaultAsync(p => p.Id == 1);
         if (powerLive is null)
@@ -63,7 +63,7 @@ public class PowersController:ControllerBase
             await _dbContext.Powers.AddAsync(powerLiveForAdd);
         }
         await _dbContext.SaveChangesAsync();
-        return powerLive;
+        return Ok(powerLive);
     }
 
     [HttpGet("live")]
