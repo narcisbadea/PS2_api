@@ -9,7 +9,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8c1449cc-c837-4322-bc56-4b104a622545" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/PS2_api/Controllers/PowersController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PS2_api/Controllers/PowersController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PS2_api/Models/WaypointResult.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.PS2_api/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PS2_api/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PS2_api/Controllers/WaypointsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PS2_api/Controllers/WaypointsController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,7 +19,8 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1e8feaadf5c3fa14d36ea2a638c432a2e1a47b7837d8b83d88303c5d9c15cf/AsyncValueTaskMethodBuilderT.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5956701c92ec47bc98145555cd08eafca23890/79/c8e3e8c0/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1e8feaadf5c3fa14d36ea2a638c432a2e1a47b7837d8b83d88303c5d9c15cf/AsyncValueTaskMethodBuilderT.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3ea95343b9387b73062a9b61b7538f826c54ce3529632b4472ba4494044d23/AsyncTaskMethodBuilderT.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -105,7 +108,8 @@
       <workItem from="1652125797886" duration="1352000" />
       <workItem from="1652359330530" duration="3867000" />
       <workItem from="1652441991339" duration="3335000" />
-      <workItem from="1652709078287" duration="1866000" />
+      <workItem from="1652709078287" duration="2165000" />
+      <workItem from="1652769315363" duration="1803000" />
     </task>
     <servers />
   </component>

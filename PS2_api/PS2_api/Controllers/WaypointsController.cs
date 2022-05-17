@@ -24,4 +24,34 @@ public class WaypointsController : ControllerBase
         return pw;
     }
 
+    [HttpGet]
+    public async Task<List<WaypointResult>> getWay()
+    {
+        var pw = await _dbContext.Waypoints.OrderBy(w => w.positionTime).ToListAsync();
+        var timeNow = TimeOnly.FromDateTime(DateTime.Now);
+        var length = pw.Count;
+        List<WaypointResult> waypoints = new List<WaypointResult>();
+        for (int i = 0; i < length; i++)
+        {
+            if (pw[i].positionTime <= timeNow && pw[i + 1].positionTime >= timeNow)
+            {
+                waypoints.Add(new WaypointResult
+                {
+                    LR = pw[i].LR,
+                    TD = pw[i].TD,
+                    positionTime = pw[i].positionTime.Hour.ToString()+":"+pw[i].positionTime.Minute.ToString()+":"+pw[i].positionTime.Minute.ToString()
+                });
+                waypoints.Add(new WaypointResult
+                {
+                    LR = pw[i+1].LR,
+                    TD = pw[i+1].TD,
+                    positionTime = pw[i+1].positionTime.Hour.ToString()+":"+pw[i+1].positionTime.Minute.ToString()+":"+pw[i+1].positionTime.Minute.ToString()
+                });
+                break;
+            }
+        }
+
+        return waypoints;
+    }
+
 }
