@@ -38,8 +38,7 @@ public class WaypointsController : ControllerBase
                 var way1 = new WaypointResult
                 {
                     LR = pw[i].LR,
-                    TD = pw[i].TD,
-                    positionTime = pw[i].positionTime.Hour.ToString() + ":" + pw[i].positionTime.Minute.ToString() + ":" + pw[i].positionTime.Minute.ToString()
+                    TD = pw[i].TD
                 };
                 waypoints.Add(way1);
                 

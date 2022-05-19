@@ -9,8 +9,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8c1449cc-c837-4322-bc56-4b104a622545" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.PS2_api/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PS2_api/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PS2_api/Controllers/WaypointsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PS2_api/Controllers/WaypointsController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PS2_api/Models/WaypointResult.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PS2_api/Models/WaypointResult.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +111,7 @@
       <workItem from="1652769315363" duration="1803000" />
       <workItem from="1652804570250" duration="3519000" />
       <workItem from="1652828943141" duration="1050000" />
-      <workItem from="1652951107070" duration="475000" />
+      <workItem from="1652951107070" duration="848000" />
     </task>
     <servers />
   </component>
