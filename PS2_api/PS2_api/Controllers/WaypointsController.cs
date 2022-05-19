@@ -21,7 +21,12 @@ public class WaypointsController : ControllerBase
     public async Task<List<WaypointResult>> getWay()
     {
         var pw = await _dbContext.Waypoints.OrderBy(w => w.positionTime).ToListAsync();
-        var timeNow = TimeOnly.FromDateTime(DateTime.Now);
+        
+        var info = TimeZoneInfo.FindSystemTimeZoneById("E. Europe Standard Time");
+        DateTimeOffset localServerTime = DateTimeOffset.Now;
+        DateTimeOffset localTime= TimeZoneInfo.ConvertTime(localServerTime, info);
+    
+        var timeNow = TimeOnly.FromDateTime(localTime.DateTime);
         var length = pw.Count;
         
         
